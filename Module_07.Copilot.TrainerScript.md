@@ -157,21 +157,33 @@ While Copilot is working (optional filler):
 
 "We are looking for warnings and risky packages. This is a safety step."
 
-"Step 1 is the build. We want to see warnings in the output."
+**STEP 1: Build the Project and Observe Warnings**
+
+"Now we build the project. We want to see warnings in the output."
 
 "You should see warnings like: 'NU1902: Package X version Y has a known moderate severity vulnerability.'"
 
-"Step 2 is analysis with `@workspace`. It gives us a list of packages and versions."
+**STEP 2: Assess Framework Version and Dependencies**
 
-"Step 3 is legacy patterns. We want to find old C# styles to modernize."
-
-"Step 4 is the assessment file. This is our plan for the upgrade."
+"Now we use @workspace to analyze packages. It gives us a list of packages and versions with CVEs."
 
 "If you get a long answer, scroll and check the summary at the end."
 
 "If Copilot misses a package, ask again with `@workspace` and be specific."
 
 "If the response is too long, ask: 'Give me a short table with package, current version, safe version.'"
+
+**STEP 3: Identify Legacy Code Patterns**
+
+"Now we find old C# styles to modernize."
+
+"Copilot should identify patterns in ClaimService, UserService, AuthController, and DTOs."
+
+**STEP 4: Generate Assessment Report**
+
+"Now we create the assessment file. This is our plan for the upgrade."
+
+"Use Agent Mode to create the MODERNIZATION_ASSESSMENT.md file."
 
 "If you are not sure what a warning means, ask Copilot: 'Explain NU1902 and NU1903 in one sentence.'"
 
@@ -223,9 +235,15 @@ Safety mantra:
 
 While Copilot proposes changes (optional filler):
 
+**STEP 1: Plan the Framework Upgrade**
+
 "Agent should show a plan. It should include TargetFramework update, package updates, restore, and build."
 
 "If Agent starts editing files directly without showing a plan, stop and ask: 'Show me a plan first before making changes.'"
+
+"Review the plan carefully. Check that it updates to net9.0 and updates all packages."
+
+**STEP 2: Execute the Upgrade**
 
 "If the plan misses tests, ask the agent to run tests after the build."
 
@@ -240,6 +258,18 @@ While Copilot proposes changes (optional filler):
 "After that, it runs restore and build to confirm the upgrade."
 
 "If errors appear, the agent should fix them before we continue."
+
+**STEP 3: Verify CVE Remediation**
+
+"Now we verify that CVE warnings are gone."
+
+"Build should complete without any NU1902/NU1903 warnings."
+
+**STEP 4: Run Tests to Validate Upgrade**
+
+"Now we run tests to make sure everything still works."
+
+"If tests fail, ask Agent Mode to fix the compatibility issues."
 
 "If Agent is fast, pause and read the plan out loud. It helps everyone follow."
 
@@ -293,15 +323,31 @@ While Copilot is working (optional filler):
 
 "After conversion, check the constructors are gone. Records create them for us."
 
-"If a record needs default values, add them carefully in the signature."
+**STEP 1: Analyze Current DTO Structure**
 
-"We start with one DTO to see the pattern."
+"First, we analyze one DTO to understand the current structure."
 
-"Then we convert all DTOs in the folder."
+"Use the Smart Action 'Explain' on ClaimReadDto.cs."
+
+**STEP 2: Convert ClaimReadDto to Record**
+
+"Now we convert one DTO to see the pattern."
+
+"Use Edit mode to convert the class to a record."
+
+**STEP 3: Convert All DTOs**
+
+"Now we convert all DTOs in the folder."
 
 "We also update mapping code so it matches the new record syntax."
 
 "When using Agent Mode for batch conversion, the agent will propose changes to multiple files. Review each file change before accepting."
+
+**STEP 4: Verify and Test**
+
+"Finally, we build and test to make sure everything works."
+
+"If a record needs default values, add them carefully in the signature."
 
 "If you see warnings about nullable values, ask Copilot to add safe defaults."
 
@@ -393,7 +439,27 @@ While Copilot is working (optional filler):
 
 "Be careful: `_logger` becomes `logger`, `_context` becomes `context`."
 
-"We update services first, then controllers."
+**STEP 1: Convert ClaimService**
+
+"First, we convert ClaimService to use primary constructor."
+
+"Use Edit mode on ClaimService.cs."
+
+**STEP 2: Convert UserService**
+
+"Now we do the same with UserService."
+
+"We also modernize the null check to use ArgumentNullException.ThrowIfNull()."
+
+**STEP 3: Convert AuthController**
+
+"Now we convert AuthController."
+
+"We also improve logging and simplify null checks."
+
+**STEP 4: Batch Convert Remaining Files**
+
+"Finally, we use Agent Mode to convert all remaining services and controllers."
 
 "This change should not affect behavior, only the syntax."
 
@@ -445,17 +511,29 @@ While Copilot is working (optional filler):
 
 "This removes an extra dependency and uses the built-in serializer."
 
+**STEP 1: Find Newtonsoft.Json Usages**
+
+"First, we find all usages of Newtonsoft.Json in the project."
+
+"Use @workspace to search for package references and JsonConvert calls."
+
+**STEP 2: Replace JsonConvert Calls**
+
+"Now we replace JsonConvert with JsonSerializer."
+
 "Check that JsonConvert calls are replaced by JsonSerializer."
 
-"After removing the package, rebuild to confirm no missing references."
-
-"We first find all Newtonsoft usages."
-
-"Then we replace the API calls with System.Text.Json."
+**STEP 3: Remove Package Reference**
 
 "Finally we remove the package reference from the project file."
 
 "When Agent Mode proposes to remove the package, check that no Newtonsoft references remain in the code."
+
+**STEP 4: Verify and Test**
+
+"Build and test to confirm everything works."
+
+"After removing the package, rebuild to confirm no missing references."
 
 "If you see options changes, ask Copilot to align JSON options with old behavior."
 
@@ -507,15 +585,33 @@ While Copilot is running (optional filler):
 
 "If the agent changes logic, reject and ask for syntax-only changes."
 
-"We modernize strings and logs first."
+**STEP 1: Modernize String Handling**
 
-"Then we validate behavior with Release build and tests."
+"First, we fix all string concatenation. Replace with string interpolation."
+
+**STEP 2: Add Modern Logging**
+
+"Now we modernize logging to use structured logging."
+
+"Check that all logger calls use placeholders instead of concatenation."
+
+**STEP 3: Validate Code Behavior**
+
+"Now we validate that behavior did not change."
+
+"Use @workspace to compare before and after."
+
+**STEP 4: Run Comprehensive Tests**
+
+"Now we run full tests: Release build, unit tests, and health endpoint."
+
+"When you test the health endpoint, you should see HTTP 200 and a JSON response with status 'Healthy'."
+
+**STEP 5: Generate Modernization Summary**
 
 "Finally we generate the modernization summary file."
 
 "Agent Mode may propose multiple changes. Review the changes to strings and logging. Make sure behavior is not changed."
-
-"When you test the health endpoint, you should see HTTP 200 and a JSON response with status 'Healthy'."
 
 "If you are unsure, run the tests before accepting more changes."
 
