@@ -9,24 +9,26 @@ You will jump to `Module_07/Module_07.DotNet.md` for the actual step-by-step ins
 - 00:00-00:05 Courtesy wait
 - 00:05-00:15 Intro + how we will work
 - 00:15-00:25 Environment check
-- 00:25-00:55 Exercise 1
-- 00:55-01:20 Exercise 2
-- 01:20-01:30 Break (10 min if on time, otherwise 5 min)
-- 01:30-01:50 Exercise 3
-- 01:50-02:05 Exercise 4
-- 02:05-02:20 Exercise 5
-- 02:20-02:35 Exercise 6
-- 02:35-02:40 Wrap-up + survey + goodbye
+- 00:25-00:40 Exercise 1 (15 min)
+- 00:40-00:55 Exercise 2 (15 min)
+- 00:55-01:05 Exercise 3 (10 min)
+- 01:05-01:15 Break (10 min if on time, otherwise 5 min)
+- 01:15-01:25 Exercise 4 (10 min)
+- 01:25-01:35 Exercise 5 (10 min)
+- 01:35-01:50 Exercise 6 (15 min)
+- 01:50-02:00 Wrap-up + survey + goodbye (10 min)
 
 ## 00:00-00:05 Courtesy Wait
 
 Say:
 
-"Hi everyone, we will start in about five minutes. Please open VS Code, open the `Exercise 1` folder, and check that GitHub Copilot Chat works."
+"Hi everyone, we will start in about five minutes. Please open VS Code and check that GitHub Copilot Chat works."
 
-If the session is recorded, start recording now and say:
+**IMPORTANT: Start recording now.**
 
-"Quick reminder: this session is recorded."
+Say:
+
+"Quick reminder: this session is being recorded."
 
 ## 00:05-00:15 Short Intro (What We Will Do)
 
@@ -96,7 +98,13 @@ If Dev Container is used, say:
 
 If someone is blocked and you are spending too long troubleshooting, say:
 
-"If troubleshooting is taking too long, please register for another session. Support calls are available."
+"If troubleshooting takes too long (more than 15-20 minutes), please disconnect and register for another session later."
+
+You can copy/paste this text in the chat:
+
+```text
+If you experience issues with requirements and setup of lab environment, please consider to register again in another date and join our Support Calls available every Monday and Friday. Please write an email to TechnicalExcellenceSchools@generali.com and inform us about this.
+```
 
 ## Exercise Transitions
 
@@ -112,6 +120,8 @@ Use this pattern for every exercise:
 Say:
 
 "Exercise 1 is about assessment: we look at the legacy code, CVE warnings, and modernization opportunities."
+
+"We will follow the steps in the lab script. I will paste prompt 1.1, 1.2, 1.3, and 1.4 into the chat."
 
 "And now we'll start Exercise 1."
 
@@ -165,6 +175,8 @@ Say:
 
 "Exercise 2 upgrades the framework to .NET 9 and fixes CVEs with Agent Mode."
 
+"Check the lab script for prompts 2.1, 2.2, 2.3, and 2.4. I will paste them into the chat."
+
 "And now we'll start Exercise 2."
 
 Safety mantra:
@@ -217,23 +229,13 @@ Q&A micro-pause (30-60 seconds):
 
 "Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
 
-## Break (5-10 min)
-
-Say:
-
-"We take a short break now. I will post the return time in the chat."
-
-"After the break we modernize code: records, primary constructors, JSON, and validation."
-
-If you need to shorten the break:
-
-"We will take 5 minutes so we can finish on time."
-
 ## Exercise 3 (Intro)
 
 Say:
 
 "Exercise 3 converts DTO classes to records."
+
+"Follow prompts 3.1, 3.2, 3.3 from the lab script. I will paste them into the chat."
 
 "And now we'll start Exercise 3."
 
@@ -275,11 +277,27 @@ Q&A micro-pause (30-60 seconds):
 
 "Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
 
+## Break (5-10 min)
+
+Say:
+
+"We take a short break now. We are about 1 hour into the lab."
+
+"I will post the return time in the chat."
+
+"After the break we finish modernization: primary constructors, JSON migration, and validation."
+
+If you need to shorten the break:
+
+"We will take 5 minutes so we can finish on time."
+
 ## Exercise 4 (Intro)
 
 Say:
 
 "Exercise 4 uses C# primary constructors in services and controllers."
+
+"Follow prompts 4.1, 4.2, 4.3, 4.4 from the lab script."
 
 "And now we'll start Exercise 4."
 
@@ -327,6 +345,8 @@ Say:
 
 "Exercise 5 replaces Newtonsoft.Json with System.Text.Json."
 
+"Follow prompts 5.1, 5.2, 5.3 from the lab script."
+
 "And now we'll start Exercise 5."
 
 While Copilot is working (optional filler):
@@ -372,6 +392,8 @@ Q&A micro-pause (30-60 seconds):
 Say:
 
 "Exercise 6 finishes modernization: strings, logging, and full validation."
+
+"Follow prompts 6.1, 6.2, 6.3, 6.4, 6.5 from the lab script."
 
 "And now we'll start Exercise 6."
 
@@ -433,7 +455,25 @@ Say:
 
 "- Always validate with build and tests."
 
-"I will paste the survey link now. Please fill it in." 
+## Labs Reminder and Prerequisites (5 minutes before closing)
+
+Say:
+
+"Before we close, a quick reminder about future labs and support."
+
+"If you want to practice more or attend other modules, please check the requirements before registering."
+
+"Support Calls are available every Monday and Friday if you need help with setup."
+
+"I will post the information in the chat now."
+
+Copy/paste in chat (optional):
+
+```text
+Support calls are available every Monday and Friday. If you need help with lab setup or have questions, please write to TechnicalExcellenceSchools@generali.com
+```
+
+"Now I will paste the survey link. Please fill it in." 
 
 If there is extra time (optional):
 
@@ -461,3 +501,5 @@ TechnicalExcellenceSchools@generali.com and inform us about this.
 Say:
 
 "Thanks everyone for joining. Have a great day, and see you in the next module."
+
+**IMPORTANT: Stop recording and end the meeting (do not just leave).**
