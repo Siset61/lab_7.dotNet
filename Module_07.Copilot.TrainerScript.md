@@ -211,6 +211,10 @@ Safety mantra:
 
 "If you see 'Keep' or 'Undo' buttons, remember: Keep = accept the change, Undo = reject it and ask Copilot to revise."
 
+"Important: In Exercise 2 we only upgrade the framework and packages. Do NOT change JSON serialization, records, or primary constructors yet."
+
+"If the plan includes code refactors, stop and ask: 'Limit this step to framework and package upgrades only.'"
+
 **STEP 1: Plan the Framework Upgrade**
 
 "Copilot will analyze the project and create a step-by-step plan."
@@ -408,6 +412,20 @@ Say:
 "Follow prompts 5.1, 5.2, 5.3 from the lab script."
 
 "And now we'll start Exercise 5."
+
+If you notice Newtonsoft.Json was already replaced earlier, say:
+
+"Copilot already replaced Newtonsoft.Json in an earlier exercise. We need to see that change here, so we will reset to the Exercise_4 checkpoint and redo Exercise 5 step by step."
+
+"I will run these commands now:"
+
+```bash
+git restore .
+git clean -fd
+git checkout Exercise_4
+```
+
+"From this point, we continue with Exercise 5 to see the JSON migration clearly." 
 
 **STEP 1: Find Newtonsoft.Json Usages**
 
