@@ -135,9 +135,15 @@ Use this pattern for every exercise:
 
 ## Exercise 1 (Intro)
 
+## Exercise 1: Assess the Legacy Codebase
+
 Say:
 
 "Exercise 1 is about assessment: we look at the legacy code, CVE warnings, and modernization opportunities."
+
+"The objective is: Use Copilot to analyze the legacy .NET 6.0 codebase and identify all modernization opportunities including outdated patterns, deprecated APIs, and security vulnerabilities."
+
+"The Claims API was built with .NET 6.0 and contains several legacy patterns that can benefit from modernization. We will use Copilot's Ask mode and @workspace participant to perform a comprehensive assessment before planning the upgrade."
 
 "Why do we assess first? To understand the risks before making changes."
 
@@ -193,11 +199,15 @@ Q&A micro-pause (30-60 seconds):
 
 "If I see many '1', I will wait 1 more minute for everyone to catch up."
 
-## Exercise 2 (Intro)
+## Exercise 2: Upgrade Framework with Agent Mode
 
 Say:
 
 "Exercise 2 upgrades the framework to .NET 9 and fixes CVEs with Agent Mode."
+
+"The objective is: Use GitHub Copilot Agent Mode to upgrade the project from .NET 6.0 to .NET 9.0 and update all packages to their latest secure versions."
+
+"Agent Mode can autonomously plan and execute multi-file framework upgrades. We will guide the agent to upgrade the target framework, update all NuGet packages, and resolve any compatibility issues that arise."
 
 "Why upgrade? Security fixes and access to new C# features."
 
@@ -208,6 +218,8 @@ Say:
 Safety mantra:
 
 "Review the diff before accepting. Verify TargetFramework is net9.0 and packages are updated."
+
+"When Agent Mode shows you a plan or proposes changes, you will see a diff view. Take your time to review it. Accept if it looks correct, or ask the agent to revise if something is wrong."
 
 While Copilot proposes changes (optional filler):
 
@@ -259,11 +271,15 @@ Q&A micro-pause (30-60 seconds):
 
 "If I see many '2', I will troubleshoot Copilot connection quickly."
 
-## Exercise 3 (Intro)
+## Exercise 3: Refactor DTOs to Records
 
 Say:
 
 "Exercise 3 converts DTO classes to records."
+
+"The objective is: Modernize the DTO classes to use C# records, which provide immutability, value equality, and concise syntax."
+
+"The current DTOs are implemented as verbose classes with explicit constructors and mutable properties. We will use Copilot to convert them to records, reducing boilerplate and improving code quality."
 
 "Why records? Less code for the same result. We remove constructors and boilerplate."
 
@@ -284,6 +300,8 @@ While Copilot is working (optional filler):
 "Then we convert all DTOs in the folder."
 
 "We also update mapping code so it matches the new record syntax."
+
+"When using Agent Mode for batch conversion, the agent will propose changes to multiple files. Review each file change before accepting."
 
 "If you see warnings about nullable values, ask Copilot to add safe defaults."
 
@@ -353,11 +371,15 @@ We are starting again now. Please join us for Exercise 4.
 
 "If you are still on a break, please come back now so we can finish on time."
 
-## Exercise 4 (Intro)
+## Exercise 4: Modernize Services with Primary Constructors
 
 Say:
 
 "Exercise 4 uses C# primary constructors in services and controllers."
+
+"The objective is: Refactor service classes to use C# 12 primary constructors, eliminating boilerplate field assignments."
+
+"The current services use traditional constructor injection with explicit field declarations and assignments. C# 12 primary constructors reduce this boilerplate significantly."
 
 "Follow prompts 4.1, 4.2, 4.3, 4.4 from the lab script."
 
@@ -374,6 +396,8 @@ While Copilot is working (optional filler):
 "We update services first, then controllers."
 
 "This change should not affect behavior, only the syntax."
+
+"When using Agent Mode for batch conversion, review each proposed file change. Make sure the parameter names are correct."
 
 "If you see a null check, we simplify it with `ArgumentNullException.ThrowIfNull()`."
 
@@ -401,11 +425,15 @@ Q&A micro-pause (30-60 seconds):
 
 "Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
 
-## Exercise 5 (Intro)
+## Exercise 5: Replace Newtonsoft.Json with System.Text.Json
 
 Say:
 
 "Exercise 5 replaces Newtonsoft.Json with System.Text.Json."
+
+"The objective is: Remove the Newtonsoft.Json dependency and replace all usages with the built-in System.Text.Json, which is faster and more secure."
+
+"The legacy code uses Newtonsoft.Json for serialization. Modern .NET applications should use System.Text.Json for better performance, reduced dependencies, and native integration with ASP.NET Core."
 
 "Why remove Newtonsoft? Better performance, less dependencies, and it is built into .NET."
 
@@ -426,6 +454,8 @@ While Copilot is working (optional filler):
 "Then we replace the API calls with System.Text.Json."
 
 "Finally we remove the package reference from the project file."
+
+"When Agent Mode proposes to remove the package, check that no Newtonsoft references remain in the code."
 
 "If you see options changes, ask Copilot to align JSON options with old behavior."
 
@@ -451,11 +481,15 @@ Q&A micro-pause (30-60 seconds):
 
 "Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
 
-## Exercise 6 (Intro)
+## Exercise 6: Complete Modernization and Validation
 
 Say:
 
 "Exercise 6 finishes modernization: strings, logging, and full validation."
+
+"The objective is: Complete the remaining modernization tasks, validate code behavior consistency, and ensure the modernized codebase is production-ready."
+
+"This exercise covers the final modernization touches: string interpolation, collection expressions, pattern matching, and comprehensive validation of the changes."
 
 "Follow prompts 6.1, 6.2, 6.3, 6.4, 6.5 from the lab script."
 
@@ -478,6 +512,8 @@ While Copilot is running (optional filler):
 "Then we validate behavior with Release build and tests."
 
 "Finally we generate the modernization summary file."
+
+"Agent Mode may propose multiple changes. Review the changes to strings and logging. Make sure behavior is not changed."
 
 "When you test the health endpoint, you should see HTTP 200 and a JSON response with status 'Healthy'."
 
