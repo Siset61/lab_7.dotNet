@@ -427,6 +427,27 @@ git checkout Exercise_4
 
 "From this point, we continue with Exercise 5 to see the JSON migration clearly." 
 
+If Exercise_4 also has unexpected changes, say:
+
+"If Exercise 4 is also out of sync, we will reset all the way back to the Initial tag. After we complete Exercise 4, we will jump to Exercise_5 so we can finish the last exercise cleanly."
+
+"I will run these commands now to reset:"
+
+```bash
+git restore .
+git clean -fd
+git checkout Initial
+git checkout Exercise_5
+```
+
+"After we finish Exercise 4, I will run:"
+
+```bash
+git checkout Exercise_5
+```
+
+"Then we will complete the last exercise." 
+
 **STEP 1: Find Newtonsoft.Json Usages**
 
 "First, we find all usages with @workspace."
