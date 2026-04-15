@@ -209,6 +209,8 @@ Safety mantra:
 
 "When Agent Mode shows you a plan or proposes changes, you will see a diff view. Take your time to review it. Accept if it looks correct, or ask the agent to revise if something is wrong."
 
+"If you see 'Keep' or 'Undo' buttons, remember: Keep = accept the change, Undo = reject it and ask Copilot to revise."
+
 **STEP 1: Plan the Framework Upgrade**
 
 "Copilot will analyze the project and create a step-by-step plan."
@@ -275,7 +277,7 @@ Say:
 
 **STEP 2: Convert ClaimReadDto to Record**
 
-"Now we convert one DTO to see the pattern using Edit mode."
+"Now we convert one DTO to see the pattern using Agent mode."
 
 "Copilot will rewrite the class as a record with positional parameters."
 
@@ -359,7 +361,7 @@ Say:
 
 **STEP 1: Convert ClaimService**
 
-"First, we convert ClaimService with Edit mode."
+"First, we convert ClaimService with Agent mode."
 
 "Copilot will move the constructor parameters to the class declaration and remove the private fields."
 
@@ -415,7 +417,7 @@ Say:
 
 **STEP 2: Replace JsonConvert Calls**
 
-"Now we replace JsonConvert with JsonSerializer using Edit mode."
+"Now we replace JsonConvert with JsonSerializer using Agent mode."
 
 "Copilot will update the using statements and method calls: JsonConvert.SerializeObject becomes JsonSerializer.Serialize."
 
