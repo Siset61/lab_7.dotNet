@@ -151,65 +151,41 @@ Say:
 
 "And now we'll start Exercise 1."
 
-While Copilot is working (optional filler):
-
-"Use Ask mode to understand the code before changing anything."
-
-"We are looking for warnings and risky packages. This is a safety step."
-
 **STEP 1: Build the Project and Observe Warnings**
 
-"Now we build the project. We want to see warnings in the output."
+"Now we build the project with: dotnet build"
+
+"The build will compile the code and check for package vulnerabilities."
 
 "You should see warnings like: 'NU1902: Package X version Y has a known moderate severity vulnerability.'"
 
 **STEP 2: Assess Framework Version and Dependencies**
 
-"Now we use @workspace to analyze packages. It gives us a list of packages and versions with CVEs."
+"Now we use @workspace to analyze packages."
 
-"If you get a long answer, scroll and check the summary at the end."
+"Copilot will read all project files, analyze dependencies, and identify vulnerable packages."
 
-"If Copilot misses a package, ask again with `@workspace` and be specific."
-
-"If the response is too long, ask: 'Give me a short table with package, current version, safe version.'"
+"The response will show: package name, current version, and recommended safe version."
 
 **STEP 3: Identify Legacy Code Patterns**
 
 "Now we find old C# styles to modernize."
 
-"Copilot should identify patterns in ClaimService, UserService, AuthController, and DTOs."
+"Copilot will scan the codebase looking for: verbose classes, old constructors, string concatenation, and Newtonsoft.Json usage."
 
 **STEP 4: Generate Assessment Report**
 
-"Now we create the assessment file. This is our plan for the upgrade."
+"Finally, we create the assessment file with Agent Mode."
 
-"Use Agent Mode to create the MODERNIZATION_ASSESSMENT.md file."
-
-"If you are not sure what a warning means, ask Copilot: 'Explain NU1902 and NU1903 in one sentence.'"
-
-Mid-step status check (optional):
-
-"If you are still building, type `B` in the chat. If build finished, type `D`."
+"Agent Mode will create a comprehensive report with: current version, target version, CVEs found, and legacy patterns."
 
 After finishing Exercise 1 (quick check):
 
 "Quick check: did you see NU1902/NU1903 warnings and create the assessment file?"
 
-Mini recap (optional):
-
-"We now know the current framework and the risky packages. This is our baseline."
-
 If you get stuck here, say:
 
 "If you did not see warnings, check the `nuget.config` and run `dotnet build` again."
-
-"If the build fails, do not fix it yet. First read the error and share it in chat."
-
-Q&A micro-pause (30-60 seconds):
-
-"Please type `OK` if you're done, `1` if you're stuck, or `2` if Copilot isn't responding."
-
-"If I see many '1', I will wait 1 more minute for everyone to catch up."
 
 ## Exercise 2: Upgrade Framework with Agent Mode
 
@@ -233,73 +209,47 @@ Safety mantra:
 
 "When Agent Mode shows you a plan or proposes changes, you will see a diff view. Take your time to review it. Accept if it looks correct, or ask the agent to revise if something is wrong."
 
-While Copilot proposes changes (optional filler):
-
 **STEP 1: Plan the Framework Upgrade**
 
-"Agent should show a plan. It should include TargetFramework update, package updates, restore, and build."
+"Copilot will analyze the project and create a step-by-step plan."
 
-"If Agent starts editing files directly without showing a plan, stop and ask: 'Show me a plan first before making changes.'"
+"The plan shows what files will be changed and what commands will run."
 
 "Review the plan carefully. Check that it updates to net9.0 and updates all packages."
 
 **STEP 2: Execute the Upgrade**
 
-"If the plan misses tests, ask the agent to run tests after the build."
+"Now the agent executes the plan."
 
-"If you see many package updates, that is normal. We want latest stable versions."
+"Copilot will update the .csproj to net9.0, update all PackageReferences, run restore and build."
 
-"Please do not accept changes you do not understand. Ask for a smaller step."
-
-"Now the agent updates the .csproj to net9.0."
-
-"Then it updates packages to the latest stable versions."
-
-"After that, it runs restore and build to confirm the upgrade."
-
-"If errors appear, the agent should fix them before we continue."
+"If errors appear, Copilot will read the error messages and propose fixes automatically."
 
 **STEP 3: Verify CVE Remediation**
 
 "Now we verify that CVE warnings are gone."
 
+"Run dotnet build again and check the output."
+
 "Build should complete without any NU1902/NU1903 warnings."
 
 **STEP 4: Run Tests to Validate Upgrade**
 
-"Now we run tests to make sure everything still works."
+"Now we run tests with: dotnet test"
+
+"The tests verify that the upgrade did not break any functionality."
 
 "If tests fail, ask Agent Mode to fix the compatibility issues."
-
-"If Agent is fast, pause and read the plan out loud. It helps everyone follow."
-
-"If Agent is slow, say: 'It is reading many files. That is normal.'"
-
-Mid-step status check (optional):
-
-"If the plan is ready, type `P` in the chat. If you are still waiting, type `W`."
 
 After finishing Exercise 2:
 
 "Quick check: build should not show NU190 warnings and tests should pass."
-
-Mini recap (optional):
-
-"Now the project targets .NET 9 and CVE warnings should be gone."
 
 If you get stuck here, say:
 
 "If the build fails, copy the error into Copilot and ask it to fix."
 
 "If tests fail, ask Copilot to focus on test fixes only."
-
-"If NU190 warnings remain, ask Copilot to list which package is still vulnerable."
-
-Q&A micro-pause (30-60 seconds):
-
-"Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
-
-"If I see many '2', I will troubleshoot Copilot connection quickly."
 
 ## Exercise 3: Refactor DTOs to Records
 
@@ -317,61 +267,37 @@ Say:
 
 "And now we'll start Exercise 3."
 
-While Copilot is working (optional filler):
-
-"Records reduce boilerplate and are good for data objects."
-
-"After conversion, check the constructors are gone. Records create them for us."
-
 **STEP 1: Analyze Current DTO Structure**
 
-"First, we analyze one DTO to understand the current structure."
+"First, we analyze one DTO with Smart Action 'Explain' on ClaimReadDto.cs."
 
-"Use the Smart Action 'Explain' on ClaimReadDto.cs."
+"Copilot will explain what the class does and how it is structured."
 
 **STEP 2: Convert ClaimReadDto to Record**
 
-"Now we convert one DTO to see the pattern."
+"Now we convert one DTO to see the pattern using Edit mode."
 
-"Use Edit mode to convert the class to a record."
+"Copilot will rewrite the class as a record with positional parameters."
 
 **STEP 3: Convert All DTOs**
 
-"Now we convert all DTOs in the folder."
+"Now we convert all DTOs with Agent Mode."
 
-"We also update mapping code so it matches the new record syntax."
+"Copilot will convert all DTO files and update the service mapping methods."
 
-"When using Agent Mode for batch conversion, the agent will propose changes to multiple files. Review each file change before accepting."
+"Review each file change before accepting."
 
 **STEP 4: Verify and Test**
 
-"Finally, we build and test to make sure everything works."
-
-"If a record needs default values, add them carefully in the signature."
-
-"If you see warnings about nullable values, ask Copilot to add safe defaults."
-
-Mid-step status check (optional):
-
-"If your DTOs are converted, type `R` in the chat. If not, type `N`."
+"Finally, we build and test with: dotnet build and dotnet test"
 
 After finishing Exercise 3:
 
 "Quick check: all DTO files are records and the project builds."
 
-Mini recap (optional):
-
-"DTOs are now cleaner and easier to read."
-
 If you get stuck here, say:
 
 "If a DTO fails, ask Copilot to fix mapping in `ClaimService.cs`."
-
-"If you see errors about property setters, check if the code expects mutation."
-
-Q&A micro-pause (30-60 seconds):
-
-"Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
 
 ## Break (5-10 min)
 
@@ -431,65 +357,39 @@ Say:
 
 "And now we'll start Exercise 4."
 
-While Copilot is working (optional filler):
-
-"Primary constructors remove field and constructor boilerplate."
-
-"After the change, use the new parameter names directly in the class."
-
-"Be careful: `_logger` becomes `logger`, `_context` becomes `context`."
-
 **STEP 1: Convert ClaimService**
 
-"First, we convert ClaimService to use primary constructor."
+"First, we convert ClaimService with Edit mode."
 
-"Use Edit mode on ClaimService.cs."
+"Copilot will move the constructor parameters to the class declaration and remove the private fields."
 
 **STEP 2: Convert UserService**
 
 "Now we do the same with UserService."
 
-"We also modernize the null check to use ArgumentNullException.ThrowIfNull()."
+"Copilot will apply the same pattern and update null validation to ArgumentNullException.ThrowIfNull()."
 
 **STEP 3: Convert AuthController**
 
 "Now we convert AuthController."
 
-"We also improve logging and simplify null checks."
+"Copilot will update the constructor and refactor logging statements."
 
 **STEP 4: Batch Convert Remaining Files**
 
 "Finally, we use Agent Mode to convert all remaining services and controllers."
 
-"This change should not affect behavior, only the syntax."
+"Copilot will find all classes with traditional constructors and convert them."
 
-"When using Agent Mode for batch conversion, review each proposed file change. Make sure the parameter names are correct."
-
-"If you see a null check, we simplify it with `ArgumentNullException.ThrowIfNull()`."
-
-"If you see compile errors, they are often simple renames." 
-
-Mid-step status check (optional):
-
-"If the file builds, type `B` in the chat. If not, type `E`."
+"Review each file change. Check that _context becomes context and _logger becomes logger."
 
 After finishing Exercise 4:
 
-"Quick check: services/controllers use primary constructors and build is clean."
-
-Mini recap (optional):
-
-"We reduced boilerplate and kept the same logic."
+"Quick check: services and controllers use primary constructors and build is clean."
 
 If you get stuck here, say:
 
-"If something is broken, check that `_context` and `_logger` were replaced with `context` and `logger`."
-
-"If a controller fails, check constructor signatures and DI registrations."
-
-Q&A micro-pause (30-60 seconds):
-
-"Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
+"If something is broken, check that field names changed from _context to context."
 
 ## Exercise 5: Replace Newtonsoft.Json with System.Text.Json
 
@@ -507,57 +407,35 @@ Say:
 
 "And now we'll start Exercise 5."
 
-While Copilot is working (optional filler):
-
-"This removes an extra dependency and uses the built-in serializer."
-
 **STEP 1: Find Newtonsoft.Json Usages**
 
-"First, we find all usages of Newtonsoft.Json in the project."
+"First, we find all usages with @workspace."
 
-"Use @workspace to search for package references and JsonConvert calls."
+"Copilot will search the entire project and list all files using Newtonsoft."
 
 **STEP 2: Replace JsonConvert Calls**
 
-"Now we replace JsonConvert with JsonSerializer."
+"Now we replace JsonConvert with JsonSerializer using Edit mode."
 
-"Check that JsonConvert calls are replaced by JsonSerializer."
+"Copilot will update the using statements and method calls: JsonConvert.SerializeObject becomes JsonSerializer.Serialize."
 
 **STEP 3: Remove Package Reference**
 
-"Finally we remove the package reference from the project file."
+"Finally we remove the package reference with Agent Mode."
 
-"When Agent Mode proposes to remove the package, check that no Newtonsoft references remain in the code."
+"Copilot will edit the .csproj file and remove the PackageReference line."
 
 **STEP 4: Verify and Test**
 
-"Build and test to confirm everything works."
-
-"After removing the package, rebuild to confirm no missing references."
-
-"If you see options changes, ask Copilot to align JSON options with old behavior."
-
-Mid-step status check (optional):
-
-"If Newtonsoft is removed, type `N` in the chat. If not, type `S` (still)."
+"Build and test with: dotnet build and dotnet test"
 
 After finishing Exercise 5:
 
 "Quick check: no `Newtonsoft` usages remain."
 
-Mini recap (optional):
-
-"We now use System.Text.Json everywhere."
-
 If you get stuck here, say:
 
 "Search for `Newtonsoft` in the project and remove any leftover using statements."
-
-"If you see JSON options differences, check if naming policy changed."
-
-Q&A micro-pause (30-60 seconds):
-
-"Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
 
 ## Exercise 6: Complete Modernization and Validation
 
@@ -577,65 +455,47 @@ Safety mantra:
 
 "Validation is critical: build Release, run tests, and check the health endpoint."
 
-While Copilot is running (optional filler):
-
-"We want modern syntax without changing behavior."
-
-"Focus on string interpolation and structured logging."
-
-"If the agent changes logic, reject and ask for syntax-only changes."
-
 **STEP 1: Modernize String Handling**
 
-"First, we fix all string concatenation. Replace with string interpolation."
+"First, we fix all string concatenation with Agent Mode."
+
+"Copilot will find all string concatenations with + and replace them with $\"...\" syntax."
 
 **STEP 2: Add Modern Logging**
 
 "Now we modernize logging to use structured logging."
 
-"Check that all logger calls use placeholders instead of concatenation."
+"Copilot will update logging to use {PropertyName} placeholders for better performance."
 
 **STEP 3: Validate Code Behavior**
 
-"Now we validate that behavior did not change."
+"Now we validate that behavior did not change with @workspace."
 
-"Use @workspace to compare before and after."
+"Copilot will analyze the changes and identify any that could affect runtime behavior."
 
 **STEP 4: Run Comprehensive Tests**
 
 "Now we run full tests: Release build, unit tests, and health endpoint."
 
-"When you test the health endpoint, you should see HTTP 200 and a JSON response with status 'Healthy'."
+"Build in Release mode with: dotnet build -c Release"
+
+"Run all tests with: dotnet test --verbosity normal"
+
+"Test the health endpoint. You should see HTTP 200 and JSON with status 'Healthy'."
 
 **STEP 5: Generate Modernization Summary**
 
-"Finally we generate the modernization summary file."
+"Finally we generate the summary file with Agent Mode."
 
-"Agent Mode may propose multiple changes. Review the changes to strings and logging. Make sure behavior is not changed."
-
-"If you are unsure, run the tests before accepting more changes."
-
-Mid-step status check (optional):
-
-"If tests finished, type `T` in the chat. If still running, type `R`."
+"Copilot will create MODERNIZATION_COMPLETE.md with: framework upgrade, CVEs fixed, code patterns updated, and lines reduced."
 
 After finishing Exercise 6:
 
 "Quick check: Release build passes, tests pass, health endpoint responds, and summary file is created."
 
-Mini recap (optional):
-
-"We completed the modernization and validated behavior."
-
 If you get stuck here, say:
 
 "If tests fail, copy the failure into Copilot and ask it to fix."
-
-"If health check fails, confirm the API is running and correct port is used."
-
-Q&A micro-pause (30-60 seconds):
-
-"Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
 
 ## After The Last Exercise (Closing Script)
 
