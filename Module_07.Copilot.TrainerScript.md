@@ -30,6 +30,12 @@ Say:
 
 "Quick reminder: this session is being recorded."
 
+### After 5 minutes, say:
+
+"Good afternoon everyone. Thank you for joining today's lab."
+
+"Let's get started."
+
 ## 00:05-00:15 Short Intro (What We Will Do)
 
 Say:
@@ -42,11 +48,9 @@ Say:
 
 "I will paste the prompts in the meeting chat so you can copy them."
 
-"Please stay muted. Ask questions in the chat. I will pause after each exercise."
+"Please stay muted. Ask questions in the chat. "
 
-"We take a short break in the middle: 10 minutes if we are on time, otherwise 5 minutes."
-
-"If we are running late, I may skip some optional status checks to finish on time."
+"We take a short break in the middle."
 
 Two quick tips:
 
@@ -79,8 +83,6 @@ While people open the lab (optional filler):
 "I will show each prompt on screen and paste it into chat."
 
 "If you are unsure, wait for my screen before you run the prompt."
-
-If Copilot is slow (optional filler):
 
 "If Copilot is slow, please wait. It is reading the project."
 
