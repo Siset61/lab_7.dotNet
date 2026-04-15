@@ -413,6 +413,21 @@ Say:
 
 "And now we'll start Exercise 5."
 
+If the code already looks updated, say:
+
+Copilot already replaced Newtonsoft.Json in an earlier exercise.
+"If System.Text.Json is already in place, we can keep the current code and simply verify it matches the expected changes."
+
+"We will review the same files from the prompts and confirm:"
+
+"- All JsonConvert calls are replaced with JsonSerializer"
+
+"- Newtonsoft.Json package reference is removed"
+
+"- No 'using Newtonsoft.Json' remains"
+
+"If everything matches, we keep the code and move to the verification step."
+
 If you notice Newtonsoft.Json was already replaced earlier, say:
 
 "Copilot already replaced Newtonsoft.Json in an earlier exercise. We need to see that change here, so we will reset to the Exercise_4 checkpoint and redo Exercise 5 step by step."
