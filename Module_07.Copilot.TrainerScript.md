@@ -36,6 +36,8 @@ Say:
 
 "Today we modernize a .NET 6 Claims API to .NET 9 using GitHub Copilot."
 
+"By the end of this lab, you will have: upgraded the framework, fixed security vulnerabilities, and modernized the code with new C# features."
+
 "I will do each exercise first, then you repeat it. If you are behind, finish your step and then join us in the next exercise."
 
 "I will paste the prompts in the meeting chat so you can copy them."
@@ -43,6 +45,8 @@ Say:
 "Please stay muted. Ask questions in the chat. I will pause after each exercise."
 
 "We take a short break in the middle: 10 minutes if we are on time, otherwise 5 minutes."
+
+"If we are running late, I may skip some optional status checks to finish on time."
 
 Two quick tips:
 
@@ -60,6 +64,14 @@ Two quick tips:
 
 "- Use a stronger model for Agent Mode or complex steps."
 
+Quick glossary of terms we will use:
+
+"CVE: a known security issue in a package. Example: a vulnerable version of System.Text.Json."
+
+"Record: a short class for data objects. Instead of writing many lines, you write one line."
+
+"Primary constructor: a shorter way to write constructor and fields. Removes boilerplate code."
+
 While people open the lab (optional filler):
 
 "Please keep the lab script open on the side. It has the exact prompts."
@@ -74,27 +86,31 @@ If Copilot is slow (optional filler):
 
 "If the answer is too long, ask: 'Give me a short summary in 5 bullets.'"
 
-## Quick Glossary (Say it once, optional)
-
-"CVE: a known security issue in a package."
-
-"Record: a short class for data objects."
-
-"Primary constructor: a shorter way to write constructor and fields."
-
-"System.Text.Json: the built-in JSON serializer in .NET."
-
 ## 00:15-00:25 Environment Check
 
 Say:
 
-"Before Exercise 1, please check Copilot Chat works. If not, restart VS Code and check your GitHub login."
+"Before Exercise 1, we need to check your environment is ready."
 
-"Also, open the whole project folder, not only one file."
+"Step 1: Check Copilot Chat works."
 
-If Dev Container is used, say:
+"- Open the Copilot Chat panel. You should see an icon on the left sidebar."
 
-"Please make sure you are inside the Dev Container. The terminal should show the container path."
+"- Type a simple question like: 'What is this project about?'"
+
+"- If you see an answer, Copilot works correctly."
+
+"Step 2: Open the whole project folder, not only one file."
+
+"Step 3: If using Dev Container, make sure you are inside it. The terminal should show the container path."
+
+Common issues and quick fixes:
+
+"- If you see 'Sign in required', click and authenticate with your GitHub account."
+
+"- If you see 'No subscription' or 'Not authorized', contact your admin or check your license."
+
+"- If Copilot Chat does not appear, restart VS Code."
 
 If someone is blocked and you are spending too long troubleshooting, say:
 
@@ -121,6 +137,8 @@ Say:
 
 "Exercise 1 is about assessment: we look at the legacy code, CVE warnings, and modernization opportunities."
 
+"Why do we assess first? To understand the risks before making changes."
+
 "We will follow the steps in the lab script. I will paste prompt 1.1, 1.2, 1.3, and 1.4 into the chat."
 
 "And now we'll start Exercise 1."
@@ -132,6 +150,8 @@ While Copilot is working (optional filler):
 "We are looking for warnings and risky packages. This is a safety step."
 
 "Step 1 is the build. We want to see warnings in the output."
+
+"You should see warnings like: 'NU1902: Package X version Y has a known moderate severity vulnerability.'"
 
 "Step 2 is analysis with `@workspace`. It gives us a list of packages and versions."
 
@@ -169,11 +189,15 @@ Q&A micro-pause (30-60 seconds):
 
 "Please type `OK` if you're done, `1` if you're stuck, or `2` if Copilot isn't responding."
 
+"If I see many '1', I will wait 1 more minute for everyone to catch up."
+
 ## Exercise 2 (Intro)
 
 Say:
 
 "Exercise 2 upgrades the framework to .NET 9 and fixes CVEs with Agent Mode."
+
+"Why upgrade? Security fixes and access to new C# features."
 
 "Check the lab script for prompts 2.1, 2.2, 2.3, and 2.4. I will paste them into the chat."
 
@@ -186,6 +210,8 @@ Safety mantra:
 While Copilot proposes changes (optional filler):
 
 "Agent should show a plan. It should include TargetFramework update, package updates, restore, and build."
+
+"If Agent starts editing files directly without showing a plan, stop and ask: 'Show me a plan first before making changes.'"
 
 "If the plan misses tests, ask the agent to run tests after the build."
 
@@ -229,11 +255,15 @@ Q&A micro-pause (30-60 seconds):
 
 "Type `OK` if you're done, `1` if you're stuck, `2` if Copilot isn't responding."
 
+"If I see many '2', I will troubleshoot Copilot connection quickly."
+
 ## Exercise 3 (Intro)
 
 Say:
 
 "Exercise 3 converts DTO classes to records."
+
+"Why records? Less code for the same result. We remove constructors and boilerplate."
 
 "Follow prompts 3.1, 3.2, 3.3 from the lab script. I will paste them into the chat."
 
@@ -283,13 +313,43 @@ Say:
 
 "We take a short break now. We are about 1 hour into the lab."
 
-"I will post the return time in the chat."
+"Let me do a quick recap of what we accomplished so far:"
 
-"After the break we finish modernization: primary constructors, JSON migration, and validation."
+"- Exercise 1: We assessed the legacy code and found CVE warnings."
+
+"- Exercise 2: We upgraded to .NET 9 and fixed all security vulnerabilities."
+
+"- Exercise 3: We converted DTOs to modern records."
+
+"After the break we finish modernization: primary constructors, JSON migration, and final validation."
+
+"I will post the return time in the chat."
 
 If you need to shorten the break:
 
 "We will take 5 minutes so we can finish on time."
+
+### Message to post in chat BEFORE the break:
+
+```text
+Break time! We'll return at [TIME]. 
+Example: "Break time! We'll return at 14:15" (or "2:15 PM")
+Please be back on time so we can finish the lab together.
+```
+
+### When the break time is over, post in chat:
+
+```text
+We are starting again now. Please join us for Exercise 4.
+```
+
+### When you return from break, say:
+
+"Welcome back everyone."
+
+"We will now continue with Exercise 4: Primary Constructors."
+
+"If you are still on a break, please come back now so we can finish on time."
 
 ## Exercise 4 (Intro)
 
@@ -344,6 +404,8 @@ Q&A micro-pause (30-60 seconds):
 Say:
 
 "Exercise 5 replaces Newtonsoft.Json with System.Text.Json."
+
+"Why remove Newtonsoft? Better performance, less dependencies, and it is built into .NET."
 
 "Follow prompts 5.1, 5.2, 5.3 from the lab script."
 
@@ -415,6 +477,8 @@ While Copilot is running (optional filler):
 
 "Finally we generate the modernization summary file."
 
+"When you test the health endpoint, you should see HTTP 200 and a JSON response with status 'Healthy'."
+
 "If you are unsure, run the tests before accepting more changes."
 
 Mid-step status check (optional):
@@ -461,9 +525,13 @@ Say:
 
 "Before we close, a quick reminder about future labs and support."
 
-"If you want to practice more or attend other modules, please check the requirements before registering."
+"In the next modules, you will learn about Java modernization with OpenRewrite and AI-assisted testing."
+
+"If you want to attend other modules, please check the requirements before registering."
 
 "Support Calls are available every Monday and Friday if you need help with setup."
+
+"Check the school calendar for upcoming sessions."
 
 "I will post the information in the chat now."
 
