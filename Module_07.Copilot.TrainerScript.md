@@ -525,29 +525,7 @@ Say:
 
 Say:
 
-"Before we close, a quick reminder about future labs and support."
-
-"In the next modules, you will learn about Java modernization with OpenRewrite and AI-assisted testing."
-
-"If you want to attend other modules, please check the requirements before registering."
-
-"Support Calls are available every Monday and Friday if you need help with setup."
-
-"Check the school calendar for upcoming sessions."
-
-"I will post the information in the chat now."
-
-Copy/paste in chat (optional):
-
-```text
-Support calls are available every Monday and Friday. If you need help with lab setup or have questions, please write to TechnicalExcellenceSchools@generali.com
-```
-
 "Now I will paste the survey link. Please fill it in." 
-
-If there is extra time (optional):
-
-"If we have time, I can show a quick recap of the files changed and the key commands used."
 
 ### Copy/Paste (Official Text)
 
@@ -557,13 +535,6 @@ LAB feedback survey:
 Please fill our LABS feedback survey, it takes a few minutes for you and it is super important for us to improve our School !
 Link:
 https://welearngenerali.qualtrics.com/jfe/form/SV_6eSxmtUuuvITaMC
-```
-
-Environment issues message:
-
-```text
-If you experience issues with requirements and setup of lab environment, please consider to register again in another date and join our Support Calls available every Monday and Friday. Please write an email to
-TechnicalExcellenceSchools@generali.com and inform us about this.
 ```
 
 ## Goodbye
